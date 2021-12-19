@@ -19,9 +19,13 @@ else:
             reader = csv.reader(book_stars, delimiter=',', quotechar='"')
             for star, opinion in reader:
                 data.append(star + " |" + opinion)
-            book_stars_pkl = open("bookstars.pkl", "wb")
-            pickle.dump(data, book_stars_pkl)
-            book_stars_pkl.close()
+        with open("book_stars1.csv", newline='', encoding='utf-8') as book_stars:
+            reader = csv.reader(book_stars, delimiter=',', quotechar='"')
+            for star, opinion in reader:
+                data.append(star + " |" + opinion)
+    book_stars_pkl = open("bookstars.pkl", "wb")
+    pickle.dump(data, book_stars_pkl)
+    book_stars_pkl.close()
     train_data, test_data = train_test_split(data, train_size=0.4, test_size=0.1, shuffle=True)
 
     model = pyvw.vw('--quiet -c -f model.vwmodel')
