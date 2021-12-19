@@ -26,7 +26,7 @@ else:
     book_stars_pkl = open("bookstars.pkl", "wb")
     pickle.dump(data, book_stars_pkl)
     book_stars_pkl.close()
-    train_data, test_data = train_test_split(data, train_size=0.4, test_size=0.1, shuffle=True)
+    train_data, test_data = train_test_split(data, train_size=0.9, test_size=0.1, shuffle=True)
 
     model = pyvw.vw('--quiet -c -f model.vwmodel')
     for elem in train_data:
