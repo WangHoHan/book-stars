@@ -1,6 +1,6 @@
+from vowpalwabbit import pyvw
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from vowpalwabbit import pyvw
 import csv
 import os
 import pickle
